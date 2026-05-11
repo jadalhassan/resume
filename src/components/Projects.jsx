@@ -120,6 +120,7 @@ const SQL_DELAYS = [600,220,220,220,220,400,300,600,220,220,220,400,300,600,500,
 function DBMSDemo() {
   const [items, setItems] = useState([])
   const idxRef = useRef(0)
+  const scrollRef = useRef(null)
 
   useEffect(() => {
     let timer
@@ -137,6 +138,10 @@ function DBMSDemo() {
     return () => clearTimeout(timer)
   }, [])
 
+  useEffect(() => {
+    if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight
+  }, [items])
+
   return (
     <div className="absolute inset-0 bg-[#060a12] font-mono text-[11px] flex flex-col overflow-hidden">
       <div className="flex items-center gap-3 px-4 py-2 border-b border-white/5 bg-[#080d1a] shrink-0">
@@ -151,7 +156,7 @@ function DBMSDemo() {
           <span>TRIGGERS <span className="text-white font-bold">2</span></span>
         </div>
       </div>
-      <div className="flex-1 min-h-0 px-4 py-3 flex flex-col justify-end gap-1 overflow-hidden">
+      <div ref={scrollRef} className="flex-1 min-h-0 px-4 py-3 flex flex-col gap-1 overflow-y-scroll [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {items.map((item) => {
           if (item.type === 'gap') return <div key={item.key} className="h-1" />
           if (item.type === 'query') return (
@@ -344,7 +349,7 @@ export default function Projects() {
             >
               <div className={(!project.hideDemo) ? 'grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]' : ''}>
                 {!project.hideDemo && (
-                  <div className="rounded-xl overflow-hidden border border-white/10 bg-[#0b0f1a] flex flex-col">
+                  <div className={`rounded-xl overflow-hidden border border-white/10 bg-[#0b0f1a] flex flex-col${project.networkDemo || project.dbmsDemo ? ' h-[280px]' : ''}`}>
                     <div className="h-11 shrink-0 px-3 flex items-center gap-2 border-b border-white/10 bg-[#0a0d16]">
                       <span className="w-2.5 h-2.5 rounded-full bg-rose-400/90" />
                       <span className="w-2.5 h-2.5 rounded-full bg-amber-400/90" />
@@ -368,14 +373,14 @@ export default function Projects() {
                         </div>
                       </a>
                     ) : project.demoGif ? (
-                      <a href={project.codeUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent('project_github_click', { project: project.title, source: 'demo_panel' })} className="flex-1 min-h-[210px] overflow-hidden block relative group/demo">
+                      <a href={project.jsLiveUrl || project.codeUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent(project.jsLiveUrl ? 'project_live_demo_click' : 'project_github_click', { project: project.title, source: 'demo_panel' })} className="flex-1 min-h-[210px] overflow-hidden block relative group/demo">
                         <img
                           src={project.demoGif}
                           alt={`${project.title} demo`}
                           className="w-full h-full object-cover object-top"
                         />
                         <div className="absolute inset-0 bg-black/0 group-hover/demo:bg-black/50 transition-colors duration-200 flex items-center justify-center">
-                          <span className="opacity-0 group-hover/demo:opacity-100 transition-opacity duration-200 px-3 py-1.5 text-xs font-semibold bg-white/10 border border-white/20 text-white rounded-md backdrop-blur-sm">View on GitHub</span>
+                          <span className="opacity-0 group-hover/demo:opacity-100 transition-opacity duration-200 px-3 py-1.5 text-xs font-semibold bg-white/10 border border-white/20 text-white rounded-md backdrop-blur-sm">{project.jsLiveUrl ? 'Open Live Demo — JS' : 'View on GitHub'}</span>
                         </div>
                       </a>
                     ) : (
