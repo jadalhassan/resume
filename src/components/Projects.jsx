@@ -324,9 +324,9 @@ const projects = [
     ],
     tech: ['Python', 'Turtle', 'A* Pathfinding', 'Pandas', 'CSV Analytics'],
     codeUrl: 'https://github.com/jadalhassan/Maze-Game',
-    jsLiveUrl: 'https://jadalhassan.github.io/Maze-Game/',
+    jsLiveUrl: 'https://maze-game-e5zx.onrender.com/',
     demoGif: mazeGif,
-    addressBar: 'maze_game.py — Python Turtle',
+    addressBar: 'maze-game-e5zx.onrender.com',
   },
 ]
 
@@ -380,7 +380,7 @@ export default function Projects() {
                           className="w-full h-full object-cover object-top"
                         />
                         <div className="absolute inset-0 bg-black/0 group-hover/demo:bg-black/50 transition-colors duration-200 flex items-center justify-center">
-                          <span className="opacity-0 group-hover/demo:opacity-100 transition-opacity duration-200 px-3 py-1.5 text-xs font-semibold bg-cyan-500 text-slate-950 rounded-md">{project.jsLiveUrl ? 'Open Live Demo — JS' : 'View on GitHub'}</span>
+                          <span className="opacity-0 group-hover/demo:opacity-100 transition-opacity duration-200 px-3 py-1.5 text-xs font-semibold bg-cyan-500 text-slate-950 rounded-md">{project.jsLiveUrl ? 'Open Live Demo' : 'View on GitHub'}</span>
                         </div>
                       </a>
                     ) : (
@@ -453,7 +453,6 @@ export default function Projects() {
                         className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded-lg transition-colors"
                       >
                         Live Demo
-                        <span className="text-[10px] font-bold tracking-wide bg-slate-950/20 rounded px-1.5 py-0.5">JS</span>
                       </a>
                     )}
                     <a
