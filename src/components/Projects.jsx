@@ -319,6 +319,7 @@ const projects = [
     ],
     tech: ['Python', 'Turtle', 'A* Pathfinding', 'Pandas', 'CSV Analytics'],
     codeUrl: 'https://github.com/jadalhassan/Maze-Game',
+    jsLiveUrl: 'https://jadalhassan.github.io/Maze-Game/',
     demoGif: mazeGif,
     addressBar: 'maze_game.py — Python Turtle',
   },
@@ -435,6 +436,19 @@ export default function Projects() {
                         className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded-lg transition-colors"
                       >
                         Live Demo
+                      </a>
+                    )}
+                    {project.jsLiveUrl && (
+                      <a
+                        href={project.jsLiveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => trackEvent('project_live_demo_click', { project: project.title, version: 'js' })}
+                        aria-label={`Open JS live demo for ${project.title}`}
+                        className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded-lg transition-colors"
+                      >
+                        Live Demo
+                        <span className="text-[10px] font-bold tracking-wide bg-slate-950/20 rounded px-1.5 py-0.5">JS</span>
                       </a>
                     )}
                     <a
