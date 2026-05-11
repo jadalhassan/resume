@@ -359,14 +359,14 @@ export default function Projects() {
                     {project.liveUrl ? (
                       <ProjectPreview url={project.liveUrl} title={project.title} forceDark={project.forceDark} />
                     ) : project.dbmsDemo ? (
-                      <a href={project.codeUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent('project_github_click', { project: project.title, source: 'demo_panel' })} className="flex-1 relative group/demo min-h-[210px]">
+                      <a href={project.codeUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent('project_github_click', { project: project.title, source: 'demo_panel' })} className="flex-1 relative group/demo min-h-0">
                         <DBMSDemo />
                         <div className="absolute inset-0 bg-black/0 group-hover/demo:bg-black/50 transition-colors duration-200 flex items-center justify-center pointer-events-none">
                           <span className="opacity-0 group-hover/demo:opacity-100 transition-opacity duration-200 px-3 py-1.5 text-xs font-semibold bg-white/10 border border-white/20 text-white rounded-md backdrop-blur-sm">View on GitHub</span>
                         </div>
                       </a>
                     ) : project.networkDemo ? (
-                      <a href={project.codeUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent('project_github_click', { project: project.title, source: 'demo_panel' })} className="flex-1 relative group/demo min-h-[210px]">
+                      <a href={project.codeUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent('project_github_click', { project: project.title, source: 'demo_panel' })} className="flex-1 relative group/demo min-h-0">
                         <NetworksDemo />
                         <div className="absolute inset-0 bg-black/0 group-hover/demo:bg-black/50 transition-colors duration-200 flex items-center justify-center pointer-events-none">
                           <span className="opacity-0 group-hover/demo:opacity-100 transition-opacity duration-200 px-3 py-1.5 text-xs font-semibold bg-white/10 border border-white/20 text-white rounded-md backdrop-blur-sm">View on GitHub</span>
