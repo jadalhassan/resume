@@ -293,7 +293,6 @@ const projects = [
     liveUrl: 'https://jadalhassan.github.io/Networks-Proxy-Server/#',
     codeUrl: 'https://github.com/jadalhassan/Networks-Proxy-Server',
     networkDemo: true,
-    addressBar: 'proxy.py — 0.0.0.0:8080',
   },
   {
     title: 'Esports Performance Tracker',
