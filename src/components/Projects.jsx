@@ -344,7 +344,7 @@ export default function Projects() {
             >
               <div className={(!project.hideDemo) ? 'grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]' : ''}>
                 {!project.hideDemo && (
-                  <div className={`rounded-xl overflow-hidden border border-white/10 bg-[#0b0f1a] flex flex-col${project.networkDemo || project.dbmsDemo ? ' h-[280px]' : ''}`}>
+                  <div className={`rounded-xl overflow-hidden border border-white/10 bg-[#0b0f1a] flex flex-col${project.dbmsDemo ? ' h-[280px]' : ''}`}>
                     <div className="h-11 shrink-0 px-3 flex items-center gap-2 border-b border-white/10 bg-[#0a0d16]">
                       <span className="w-2.5 h-2.5 rounded-full bg-rose-400/90" />
                       <span className="w-2.5 h-2.5 rounded-full bg-amber-400/90" />
