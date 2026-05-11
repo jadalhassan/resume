@@ -380,7 +380,7 @@ export default function Projects() {
                           className="w-full h-full object-cover object-top"
                         />
                         <div className="absolute inset-0 bg-black/0 group-hover/demo:bg-black/50 transition-colors duration-200 flex items-center justify-center">
-                          <span className="opacity-0 group-hover/demo:opacity-100 transition-opacity duration-200 px-3 py-1.5 text-xs font-semibold bg-white/10 border border-white/20 text-white rounded-md backdrop-blur-sm">{project.jsLiveUrl ? 'Open Live Demo — JS' : 'View on GitHub'}</span>
+                          <span className="opacity-0 group-hover/demo:opacity-100 transition-opacity duration-200 px-3 py-1.5 text-xs font-semibold bg-cyan-500 text-slate-950 rounded-md">{project.jsLiveUrl ? 'Open Live Demo — JS' : 'View on GitHub'}</span>
                         </div>
                       </a>
                     ) : (
