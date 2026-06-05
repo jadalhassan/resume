@@ -30,7 +30,7 @@ export default function Education() {
             <div className="text-left sm:text-right shrink-0">
               <p className="text-slate-500 text-sm">Aug 2024 - Present</p>
               <p className="text-white font-semibold mt-1">Expected Spring 2027</p>
-              <p className="text-violet-300 text-sm font-semibold mt-2">GPA: 3.26</p>
+              <p className="text-violet-300 text-sm font-semibold mt-2">GPA: 3.33</p>
             </div>
           </div>
           <div className="pt-6 border-t border-white/5">
